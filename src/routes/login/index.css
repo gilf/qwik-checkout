@@ -1,0 +1,16 @@
+form {
+    border: 3px solid var(--qwik-dark-purple);
+    border-radius: 5px;
+}
+
+.container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
