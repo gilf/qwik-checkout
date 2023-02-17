@@ -6,25 +6,25 @@ import indexCSS from "./index.css?inline";
 import CartSvg from "~/components/icons/cart";
 
 export const useProductLoader = loader$(({ params }) => {
-    return products.find((product) => product.id === params.id);
+  return products.find((product) => product.id === params.id);
 });
 
 export default component$(() => {
-    useStylesScoped$(indexCSS);
-    const productSignal = useProductLoader();
-    return (
-        <div class="container">
-            <section>
-                <div class="cart">
-                    <button class="goToCart" onClick$={() => { window.location.replace("/cart") }}>
-                        <CartSvg/>
-                        <div>Go to cart</div>
-                    </button>
-                </div>
-            </section>
-            <div class="productContainer">
-                <ProductCmp product={productSignal.value} />
-            </div>
+  useStylesScoped$(indexCSS);
+  const productSignal = useProductLoader();
+  return (
+    <div class="container">
+      <section>
+        <div class="cart">
+          <a class="goToCart" href="/cart">
+            <CartSvg/>
+            <div>Go to cart</div>
+          </a>
         </div>
-    );
+      </section>
+      <div class="productContainer">
+        <ProductCmp product={productSignal.value} />
+      </div>
+    </div>
+  );
 });
